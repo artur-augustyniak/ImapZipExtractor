@@ -28,16 +28,16 @@ public class ImapZipFilesExtractor {
 
     /**
      * @see http://curl.haxx.se/rfc/ntlm.html#theNtlmFlags
-     *
+     * <p>
      * As an default:
-     * 
-     * Negotiate Unicode        (0x00000001) 
-     * Request Target           (0x00000004) 
+     * <p>
+     * Negotiate Unicode        (0x00000001)
+     * Request Target           (0x00000004)
      * Negotiate NTLM           (0x00000200)
      * Negotiate Always Sign    (0x00008000)
-     *
-     * Combining the above gives "0x00008205". 
-     * This would be physically laid out as "0x05820000" 
+     * <p>
+     * Combining the above gives "0x00008205".
+     * This would be physically laid out as "0x05820000"
      * (since it is represented in little-endian byte order).
      */
     public final static int NTLM_DEFAULT_FLAGS
@@ -65,10 +65,10 @@ public class ImapZipFilesExtractor {
     private volatile Folder inbox;
 
     public ImapZipFilesExtractor(String host,
-            String userName,
-            String passwd,
-            String imapFolder,
-            String attachmentsFolder
+                                 String userName,
+                                 String passwd,
+                                 String imapFolder,
+                                 String attachmentsFolder
     ) throws NoSuchAlgorithmException, MessagingException {
         this(host,
                 userName,
@@ -80,12 +80,12 @@ public class ImapZipFilesExtractor {
     }
 
     public ImapZipFilesExtractor(String host,
-            String userName,
-            String passwd,
-            String imapFolder,
-            String attachmentsFolder,
-            String ntlmDomain,
-            int customNtlmFlags
+                                 String userName,
+                                 String passwd,
+                                 String imapFolder,
+                                 String attachmentsFolder,
+                                 String ntlmDomain,
+                                 int customNtlmFlags
     ) throws NoSuchAlgorithmException, NoSuchProviderException, MessagingException {
 
         this.host = host;
@@ -246,7 +246,7 @@ public class ImapZipFilesExtractor {
 
     private String bytesToHex(byte[] b) {
         char hexDigit[] = {'0', '1', '2', '3', '4', '5', '6', '7',
-            '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+                '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         StringBuilder buf = new StringBuilder();
         for (int j = 0; j < b.length; j++) {
             buf.append(hexDigit[(b[j] >> 4) & 0x0f]);
